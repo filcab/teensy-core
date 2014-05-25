@@ -1,3 +1,5 @@
+// Fake a few definitions that mk20dx128.[ch] expects
+
 #define S_IFCHR    0020000
 #include <inttypes.h>
 
