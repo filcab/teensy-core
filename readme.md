@@ -3,6 +3,12 @@ teensy-core
 
 Teensy core support libraries for teensy3-toolchain
 
+This library is designed to be used with https://github.com/filcab/teensy3-toolchain
+
+You may still use this library without that build system, but it might be
+best to just get the needed files directly from their source instead of
+this repository.
+
 These file will generate the core support library for the teensy3
 toolchain. I've based them on the official sources from Paul Stoffregen
 (the files are in https://github.com/PaulStoffregen/cores/teensy3).
