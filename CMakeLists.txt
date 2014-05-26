@@ -26,5 +26,8 @@ install(FILES
   mk20dx128.ld
   DESTINATION lib)
 install(FILES
-  mk20dx128.h
+  include/mk20dx128.h
+  include/mk20dx128-compat.h
+  include/core_cm4.h
+  include/core_cm4_simd.h
   DESTINATION include)
