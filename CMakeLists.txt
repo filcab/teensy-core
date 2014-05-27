@@ -12,12 +12,23 @@ project(teensy-core C)
 #set(CMAKE_SIZEOF_VOID_P 4)
 #endif()
 
-include_directories(.)
+include_directories(include)
 add_definitions(-fno-builtin -nostdinc)
 
 add_library(teensy-core
   mk20dx128.c
   )
+
+# Special-case this crap because cmake hates us and has a broken
+# add_library(... OBJECT ...), which doesn't allow us to install that
+# object file
+add_library(mk20dx128-rt OBJECT
+  mk20dx128.c)
+# Hackity-hack-hack because cmake
+install(FILES
+  "${CMAKE_BINARY_DIR}/CMakeFiles/mk20dx128-rt.dir/mk20dx128.c.obj"
+  RENAME mk20dx128.o
+  DESTINATION lib)
 
 install(TARGETS teensy-core
   ARCHIVE DESTINATION lib)
@@ -25,9 +36,11 @@ install(TARGETS teensy-core
 install(FILES
   mk20dx128.ld
   DESTINATION lib)
-install(FILES
-  include/mk20dx128.h
-  include/mk20dx128-compat.h
-  include/core_cm4.h
-  include/core_cm4_simd.h
-  DESTINATION include)
+install(DIRECTORY include/
+  DESTINATION include
+  FILES_MATCHING
+  PATTERN "*.h")
+  #include/mk20dx128.h
+  #include/mk20dx128-compat.h
+  #include/core_cm4.h
+  #include/core_cm4_simd.h
