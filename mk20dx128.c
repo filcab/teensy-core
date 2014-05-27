@@ -46,7 +46,8 @@ extern unsigned long _estack;
 extern int main (void);
 void ResetHandler(void);
 void _init_Teensyduino_internal_(void);
-void __libc_init_array(void);
+// filcab
+//void __libc_init_array(void);
 
 
 void fault_isr(void)
@@ -467,7 +468,8 @@ void ResetHandler(void)
 	_init_Teensyduino_internal_();
 	if (RTC_SR & RTC_SR_TIF) rtc_set(TIME_T);
 
-	__libc_init_array();
+    // filcab
+	//__libc_init_array();
 
 /*
 	for (ptr = &__init_array_start; ptr < &__init_array_end; ptr++) {

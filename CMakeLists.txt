@@ -16,7 +16,8 @@ include_directories(include)
 add_definitions(-fno-builtin -nostdinc)
 
 add_library(teensy-core
-  mk20dx128.c
+  pins_teensy.c
+  yield.c
   )
 
 # Special-case this crap because cmake hates us and has a broken
