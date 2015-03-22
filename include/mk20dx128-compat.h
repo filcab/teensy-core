@@ -1,4 +1,6 @@
 // Fake a few definitions that mk20dx128.[ch] expects
+#ifndef __MK20DX128_COMPAT_H__
+#define __MK20DX128_COMPAT_H__
 
 #define S_IFCHR    0020000
 #include <inttypes.h>
@@ -40,3 +42,5 @@ struct stat {
 #undef blksize_t
 #undef blkcnt_t
 #undef time_t
+
+#endif // __MK20DX128_COMPAT_H__
